@@ -1,6 +1,6 @@
 import type { CalculationRequest } from '../../domain/calculation';
 import { formatNumber } from '../../domain/format';
-import { expressionSymbol, type Operation } from '../../domain/operations';
+import { expressionSymbol, type BinaryOperation, type Operation } from '../../domain/operations';
 import type { CalculatorState } from './calculatorReducer';
 
 /** What the display shows: a secondary expression line and a main value. */
@@ -16,7 +16,8 @@ function formatOperand(operand: string): string {
   return operand.endsWith('.') || !Number.isFinite(value) ? operand : formatNumber(value);
 }
 
-function formatRequest({ operation, operands }: CalculationRequest): string {
+/** Renders a request as text, e.g. "12 ÷ 4" or "√(16)". */
+export function formatExpression({ operation, operands }: CalculationRequest): string {
   const formatted = operands.map(formatNumber);
   const symbol = expressionSymbol(operation);
   return formatted.length === 1
@@ -47,18 +48,25 @@ export function selectDisplay(state: CalculatorState): DisplayModel {
         isError: false,
       };
     case 'loading':
-      return { expression: `${formatRequest(state.request)} =`, value: '…', isError: false };
+      return { expression: `${formatExpression(state.request)} =`, value: '…', isError: false };
     case 'result':
       return {
-        expression: `${formatRequest(state.request)} =`,
+        expression: `${formatExpression(state.request)} =`,
         value: formatNumber(state.value),
         isError: false,
       };
     case 'error':
       return {
-        expression: `${formatRequest(state.request)} =`,
+        expression: `${formatExpression(state.request)} =`,
         value: state.message,
         isError: true,
       };
   }
+}
+
+/** The binary operation waiting for its second operand, if any. */
+export function selectActiveOperation(state: CalculatorState): BinaryOperation | undefined {
+  return state.status === 'operatorSelected' || state.status === 'enteringSecondOperand'
+    ? state.operation
+    : undefined;
 }

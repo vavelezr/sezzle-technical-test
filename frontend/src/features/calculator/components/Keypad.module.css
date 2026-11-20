@@ -1,0 +1,66 @@
+.keypad {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.operations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.operations > button {
+  min-height: 2.75rem;
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'd7 d8 d9 back'
+    'd4 d5 d6 eq'
+    'd1 d2 d3 eq'
+    'd0 d0 dot eq';
+  gap: var(--space-2);
+}
+
+.digit-0 {
+  grid-area: d0;
+}
+.digit-1 {
+  grid-area: d1;
+}
+.digit-2 {
+  grid-area: d2;
+}
+.digit-3 {
+  grid-area: d3;
+}
+.digit-4 {
+  grid-area: d4;
+}
+.digit-5 {
+  grid-area: d5;
+}
+.digit-6 {
+  grid-area: d6;
+}
+.digit-7 {
+  grid-area: d7;
+}
+.digit-8 {
+  grid-area: d8;
+}
+.digit-9 {
+  grid-area: d9;
+}
+.decimal {
+  grid-area: dot;
+}
+.backspace {
+  grid-area: back;
+}
+.equals {
+  grid-area: eq;
+}

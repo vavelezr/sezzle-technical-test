@@ -1,5 +1,5 @@
 import type { CalculatorState } from './calculatorReducer';
-import { selectDisplay, type DisplayModel } from './selectors';
+import { selectActiveOperation, selectDisplay, type DisplayModel } from './selectors';
 
 describe('selectDisplay', () => {
   it.each<[string, CalculatorState, DisplayModel]>([
@@ -55,5 +55,28 @@ describe('selectDisplay', () => {
     ],
   ])('%s', (_name, state, expected) => {
     expect(selectDisplay(state)).toEqual(expected);
+  });
+});
+
+describe('selectActiveOperation', () => {
+  it.each<[string, CalculatorState, string | undefined]>([
+    ['idle', { status: 'idle' }, undefined],
+    [
+      'operator selected',
+      { status: 'operatorSelected', firstOperand: '1', operation: 'add' },
+      'add',
+    ],
+    [
+      'entering second operand',
+      { status: 'enteringSecondOperand', firstOperand: '1', operation: 'power', input: '2' },
+      'power',
+    ],
+    [
+      'result',
+      { status: 'result', request: { operation: 'add', operands: [1, 2] }, value: 3 },
+      undefined,
+    ],
+  ])('%s', (_name, state, expected) => {
+    expect(selectActiveOperation(state)).toBe(expected);
   });
 });
