@@ -2,8 +2,6 @@
 
 A full-stack calculator built for the Sezzle technical assessment. A **React + TypeScript** single-page app takes input, validates it as the user types and shows results; a **Go REST microservice** does the arithmetic (add, subtract, multiply, divide, power, square root and percentage). The backend handles edge cases such as division by zero and overflow, and every error is a typed JSON response. Both layers are unit-tested and well above their coverage targets. One `docker compose up --build` command runs the whole stack.
 
-> **Screenshot placeholder:** run the stack, open <http://localhost:3000> and save a capture as `docs/screenshot.png`.
-
 ---
 
 ## Contents
