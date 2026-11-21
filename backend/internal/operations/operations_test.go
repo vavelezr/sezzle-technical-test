@@ -19,7 +19,7 @@ func TestMetadata(t *testing.T) {
 		arity  int
 	}{
 		{operations.Add{}, "add", "+", domain.Binary},
-		{operations.Subtract{}, "subtract", "-", domain.Binary},
+		{operations.Subtract{}, "subtract", "−", domain.Binary},
 		{operations.Multiply{}, "multiply", "×", domain.Binary},
 		{operations.Divide{}, "divide", "÷", domain.Binary},
 		{operations.Power{}, "power", "^", domain.Binary},

@@ -24,7 +24,7 @@ export function errorResponse(status: number, code: string, message: string) {
   return HttpResponse.json<ErrorResponseDto>({ error: { code, message } }, { status });
 }
 
-export const calculateHandler = http.post<
+const calculateHandler = http.post<
   PathParams,
   CalculateRequestDto,
   CalculateResponseDto | ErrorResponseDto

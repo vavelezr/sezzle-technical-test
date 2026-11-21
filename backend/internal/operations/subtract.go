@@ -9,7 +9,7 @@ type Subtract struct{}
 func (Subtract) Name() string { return "subtract" }
 
 // Symbol implements domain.Operation.
-func (Subtract) Symbol() string { return "-" }
+func (Subtract) Symbol() string { return "−" }
 
 // Arity implements domain.Operation.
 func (Subtract) Arity() int { return domain.Binary }

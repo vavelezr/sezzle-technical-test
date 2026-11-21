@@ -177,7 +177,7 @@ curl -s http://localhost:8080/api/v1/operations
 {
   "operations": [
     { "name": "add", "symbol": "+", "arity": 2 },
-    { "name": "subtract", "symbol": "-", "arity": 2 },
+    { "name": "subtract", "symbol": "−", "arity": 2 },
     { "name": "multiply", "symbol": "×", "arity": 2 },
     { "name": "divide", "symbol": "÷", "arity": 2 },
     { "name": "power", "symbol": "^", "arity": 2 },

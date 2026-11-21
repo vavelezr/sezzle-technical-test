@@ -33,9 +33,6 @@ before moving on.
 
 ## Main prompt
 
-
-
-
 # Role & Context
 
 You are a senior full-stack engineer completing a **technical assessment for Sezzle** (a fintech "Buy Now, Pay Later" company). The evaluators will judge **correctness, clarity, maintainability, test quality, and documentation**, not feature count. Act like a strong candidate: deliberate, clean, well-documented, no over-engineering, no dead code.
@@ -228,12 +225,6 @@ Fintech, friendly, trustworthy, modern:
 
 **Rules:** keep functions small, prefer clarity over cleverness, no premature abstractions beyond the patterns listed, no commented-out code, meaningful names, consistent English throughout.
 
-
-## Follow-up prompts
-
-- "Read PROMPTS.md carefully... Start with Phase 1. Stop after each phase
-  and wait for my confirmation."
-- "Phase N looks good. Continue with Phase N+1." (after reviewing each phase)
 ---
 
 # Follow-up prompts used during the session
@@ -247,3 +238,4 @@ The specification above was given to Claude Code unchanged. Work was then driven
 5. "Start phase 5"
 6. "Start phase 6" (plus answering "I started Docker Desktop" when asked how to verify the Docker setup)
 7. "Start phase 7"
+8. "Read the prompts file, we already did all until phase 7, phase 8 is missing"
