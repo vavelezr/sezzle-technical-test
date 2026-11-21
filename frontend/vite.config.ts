@@ -19,7 +19,15 @@ export default defineConfig({
     css: { modules: { classNameStrategy: 'non-scoped' } },
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'html', 'lcov', 'json-summary'],
+      reporter: [
+        'text',
+        'html',
+        'lcov',
+        'json-summary',
+        // Plain-text copies consumed by `make coverage-report` (docs/coverage.md).
+        ['text', { file: 'coverage.txt', maxCols: 200 }],
+        ['text-summary', { file: 'text-summary.txt' }],
+      ],
       include: ['src/**/*.{ts,tsx}'],
       exclude: ['src/main.tsx', 'src/test/**', 'src/**/*.test.{ts,tsx}', 'src/**/*.d.ts'],
       thresholds: {

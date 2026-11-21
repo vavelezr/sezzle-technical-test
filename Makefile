@@ -1,7 +1,7 @@
 BACKEND_DIR  := backend
 FRONTEND_DIR := frontend
 
-.PHONY: install test coverage lint up down
+.PHONY: install test coverage coverage-report lint up down
 
 install: ## Install frontend dependencies
 	cd $(FRONTEND_DIR) && npm ci
@@ -13,6 +13,9 @@ test: ## Run backend and frontend unit tests
 coverage: ## Generate coverage reports for both layers
 	$(MAKE) -C $(BACKEND_DIR) coverage
 	cd $(FRONTEND_DIR) && npm run test:coverage
+
+coverage-report: ## Regenerate docs/coverage.md and the README coverage summary from real runs
+	./scripts/coverage-report.sh
 
 lint: ## Lint and type-check both layers
 	$(MAKE) -C $(BACKEND_DIR) lint
